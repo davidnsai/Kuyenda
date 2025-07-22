@@ -228,5 +228,17 @@
         <Setter Property="UnselectedTabColor" Value="{dx:ThemeColor OnSurface}" />
         <Setter Property="SelectedTabColor" Value="{dx:ThemeColor Primary}" />
     </Style>
+    <Style x:Key="FormComponent" TargetType="dx:FormItem">
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="ShowSeparator" Value="False" />
+        <Setter Property="ImageWidth" Value="24" />
+        <Setter Property="ImageHeight" Value="24" />
+        <Setter Property="ImageColor" Value="{dx:ThemeColor Key=OnSurfaceVariant}" />
+        <Setter Property="HorizontalSpacing" Value="16" />
+        <Setter Property="VerticalSpacing" Value="10" />
+        <Setter Property="TextFontSize" Value="16" />
+        <Setter Property="TextFontFamily" Value="Roboto" />
+        <Setter Property="ShowArrow" Value="True" />
+    </Style>
 
 </ResourceDictionary>

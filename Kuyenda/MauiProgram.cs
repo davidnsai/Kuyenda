@@ -1,8 +1,9 @@
-﻿using DevExpress.Maui;
+﻿using CommunityToolkit.Maui;
+using DevExpress.Maui;
 using DevExpress.Maui.Core;
-using Microsoft.Extensions.Logging;
+using Kuyenda.Services;
+using Kuyenda.ViewModels;
 using Plugin.Maui.Pedometer;
-using Shiny;
 
 namespace Kuyenda
 {
@@ -16,12 +17,13 @@ namespace Kuyenda
 
             var builder = MauiApp.CreateBuilder();
             builder
-                .UseShiny()
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .UseDevExpress(useLocalization: false)
                 .UseDevExpressCharts()
                 .UseDevExpressCollectionView()
                 .UseDevExpressControls()
+                .UseDevExpressEditors()
                 .UseDevExpressGauges()
                 .ConfigureFonts(fonts =>
                 {
@@ -32,8 +34,9 @@ namespace Kuyenda
                 });
 
             builder.Services.AddSingleton(Pedometer.Default);
-            builder.Services.AddJobs();
-            builder.Services.AddSingleton<StepTrackerJob>();
+            builder.Services.AddSingleton<StepDatabase>();
+            builder.Services.AddSingleton<StepCountingService>();
+            builder.Services.AddSingleton<SettingsViewModel>();
 
             return builder.Build();
         }

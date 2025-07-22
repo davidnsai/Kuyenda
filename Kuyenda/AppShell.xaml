@@ -3,12 +3,27 @@
     x:Class="Kuyenda.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Kuyenda"
-    Title="Kuyenda">
+    xmlns:views="clr-namespace:Kuyenda.Views"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <Shell.Behaviors>
+        <dx:SystemBarBehavior AndroidNavigationBarBackground="{dx:ThemeColor Key=SurfaceContainer}" />
+    </Shell.Behaviors>
+
+    <TabBar>
+        <Tab Icon="house.svg" Title="Home">
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate views:MainPage}"
+                Route="MainPage" />
+        </Tab>
+        <Tab Icon="gear.svg" Title="Settings">
+            <ShellContent
+                Title="Settings"
+                ContentTemplate="{DataTemplate views:SettingsPage}"
+                Route="MainPage" />
+        </Tab>
+    </TabBar>
 
 </Shell>
