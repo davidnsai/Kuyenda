@@ -45,6 +45,7 @@
                             HalfExpandedRatio="0.4"
                             AllowDismiss="True"
                             ShowGrabber="True"
+                            GrabberColor="{dx:ThemeColor Primary}"
                             IsModal="True"
                             BackgroundColor="{DynamicResource CardBackgroundColor}">
                 <VerticalStackLayout Padding="25" Spacing="15">

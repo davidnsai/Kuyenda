@@ -57,9 +57,6 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.90" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.7" />
 		<PackageReference Include="Plugin.Maui.Pedometer" Version="1.0.0-preview3" />
-		<PackageReference Include="Shiny" Version="2.7.3" />
-		<PackageReference Include="Shiny.Hosting.Maui" Version="3.3.4" />
-		<PackageReference Include="Shiny.Jobs" Version="3.3.4" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 	</ItemGroup>
 
