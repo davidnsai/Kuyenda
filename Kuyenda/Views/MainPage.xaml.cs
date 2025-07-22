@@ -10,8 +10,16 @@ namespace Kuyenda.Views
         public MainPage(StepCountingService stepCountingService)
         {
             InitializeComponent();
-            
+
+            if (Application.Current != null)
+            {
+                // Set theme based on user preference at startup
+                var darkMode = Preferences.Get("DarkMode", false);
+                Application.Current.UserAppTheme = darkMode ? AppTheme.Dark : AppTheme.Light;
+            }
+
             viewModel = new MainViewModel(stepCountingService);
+            
             BindingContext = viewModel;
         }
 
@@ -21,12 +29,6 @@ namespace Kuyenda.Views
             
             await viewModel.InitializeAsync();
             viewModel.StartCountingAsync();
-        }
-
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-            viewModel.StopCountingAsync();
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿<?xml version = "1.0" encoding = "UTF-8" ?>
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Kuyenda"
-             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:converters="clr-namespace:Kuyenda.Converters"
              x:Class="Kuyenda.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -11,8 +10,9 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
             
-            <local:StepsToDistanceConverter x:Key="StepsToDistanceConverter"/>
-            <local:StepsToCaloriesConverter x:Key="StepsToCaloriesConverter"/>
+            <converters:StepsToDistanceConverter x:Key="StepsToDistanceConverter"/>
+            <converters:StepsToCaloriesConverter x:Key="StepsToCaloriesConverter"/>
+            <converters:DateStringToHumanReadableConverter x:Key="DateStringToHumanReadableConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

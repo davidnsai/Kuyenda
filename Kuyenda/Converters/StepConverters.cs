@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace Kuyenda
+namespace Kuyenda.Converters
 {
     public class StepsToDistanceConverter : IValueConverter
     {

@@ -47,6 +47,7 @@ namespace Kuyenda.ViewModels
             if (Application.Current != null)
             {
                 Application.Current.UserAppTheme = value ? AppTheme.Dark : AppTheme.Light;
+                Preferences.Set("DarkMode", value);
             }
         }
 

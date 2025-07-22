@@ -28,16 +28,12 @@ namespace Kuyenda.Services
         public Task<List<StepModel>> GetLastFiveDaysStepsAsync()
         {
             var startDate = DateTime.Today.AddDays(-5).ToString("yyyy-MM-dd");
-            var endDate = DateTime.Today.ToString("yyyy-MM-dd");
+            var endDate = DateTime.Today.ToString("yyyy-MM-dd"); 
 
-            return _database.Table<StepModel>()
-                            .Where(s => s.Date != null && s.Date.CompareTo(startDate) >= 0 && s.Date.CompareTo(endDate) < 0)
-                            .OrderByDescending(s => s.Date)
-                            .ToListAsync();
+            return _database.QueryAsync<StepModel>(
+                "SELECT * FROM StepModel WHERE Date IS NOT NULL AND Date != '' AND Date >= ? AND Date <= ? ORDER BY Date DESC",
+                startDate, endDate);
         }
-
-
-
 
         // Get a single step entry by stringified date (yyyy-MM-dd)
         public Task<StepModel> GetStepByDateAsync(DateTime date)
@@ -66,7 +62,6 @@ namespace Kuyenda.Services
             return _database.DeleteAsync(step);
         }
 
-        // Optional: Clear all records (for testing)
         public Task<int> DeleteAllStepsAsync()
         {
             return _database.DeleteAllAsync<StepModel>();
