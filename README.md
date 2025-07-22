@@ -41,7 +41,7 @@ Kuyenda is a modern, cross-platform pedometer application built for the MAUI UI 
 ## 📋 Requirements
 
 - **Android**: Android 5.0 (API 21) or higher
-- **iOS**: iOS 15.0 or higher
+- **iOS**: iOS 14.2 or higher
 - **Development**: Visual Studio 2025 with .NET MAUI workload
 
 ## ⚙️ Installation
